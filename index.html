@@ -181,7 +181,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -191,7 +191,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -257,7 +257,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-06T11:12:31+08:00">
                 2018-03-06
@@ -299,25 +299,63 @@
       
         
           
-          使用Hexo静态博客部署在github及同类网站上的好处：
+            <p>使用Hexo静态博客部署在github及同类网站上的好处：</p>
+<ul>
+<li>自由，没有广告</li>
+<li>简单，全静态页面，部署后常用操作不超过一只手</li>
+<li>快速，据说速度是jekyll的N倍</li>
+<li>免费，不需要云服务器的费用</li>
+<li>强大，支持一次编辑，多处发布</li>
+<li>标准，支持Markdown语言的解析</li>
+<li>扩展，支持很多扩展包、主题包，想换就换</li>
+</ul>
+<h3 id="最新靠谱的Hexo部署教程"><a href="#最新靠谱的Hexo部署教程" class="headerlink" title="最新靠谱的Hexo部署教程"></a>最新靠谱的Hexo部署教程</h3><ul>
+<li>史上最新版GitHub+Hexo配置系列教程-Hexo配置(一)</li>
+</ul>
+<p><a href="http://blog.csdn.net/smallcheric/article/details/51049683" target="_blank" rel="noopener">http://blog.csdn.net/smallcheric/article/details/51049683</a></p>
+<ul>
+<li>史上最新版GitHub+Hexo配置系列教程-GitHub配置(二)</li>
+</ul>
+<p><a href="http://blog.csdn.net/smallcheric/article/details/51049686" target="_blank" rel="noopener">http://blog.csdn.net/smallcheric/article/details/51049686</a></p>
+<ul>
+<li>史上最新版GitHub+Hexo配置系列教程-Hexo+GitHub关联-三</li>
+</ul>
+<p><a href="http://blog.csdn.net/smallcheric/article/details/51049691" target="_blank" rel="noopener">http://blog.csdn.net/smallcheric/article/details/51049691</a></p>
+<ul>
+<li>如何同时部署到github和coding</li>
+</ul>
+<p><a href="https://www.jianshu.com/p/934d4b501b18" target="_blank" rel="noopener">https://www.jianshu.com/p/934d4b501b18</a></p>
+<p>​    </p>
+<h3 id="遇坑总结"><a href="#遇坑总结" class="headerlink" title="遇坑总结"></a>遇坑总结</h3><ul>
+<li><p>空格</p>
+<p>不管是_config.yml配置还是“title, date, tags”这几个文章标题项，冒号后面需要空格，否则会报错。</p>
+<p>另外其实Markdown文本里，空格也非常重要，比如###作为三级标题，后面也需要有个空格，否则不能正常展示。</p>
+</li>
+<li><p>SSH Key</p>
+<p>这个Key的生成和配置是和邮箱绑定的，另外在配置链接时，有https和ssh两种方式，两种方式的配置是不一样的，如下，如果搞不清楚，就会发生『我的SSH KEY设置了，怎么还不生效』这样的疑问：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository:</span><br><span class="line">    github: https://github.com/huzhiyun/huzhiyun.github.io.git</span><br><span class="line">    coding: git@git.coding.net:huzhiyun/huzhiyun.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<p>​</p>
+<p>在配置多个SSH Key时，可以在~/.ssh/目录下新建config文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># github for codemania1</span><br><span class="line">Host github.com  </span><br><span class="line">HostName github.com  </span><br><span class="line">PreferredAuthentications publickey  </span><br><span class="line">User git</span><br><span class="line">IdentityFile ~/.ssh/id_rsa</span><br><span class="line"></span><br><span class="line"># github for huzhiyun</span><br><span class="line">Host github_hu</span><br><span class="line">HostName github.com</span><br><span class="line">User git</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">IdentityFile ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
+<p>然后使用下面的命令确认是否配置好了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CodemaniadeMacBook-Pro:.ssh codemania$ ssh -T github_hu</span><br><span class="line">Enter passphrase for key &apos;/Users/codemania/.ssh/id_rsa&apos;: </span><br><span class="line">Hi huzhiyun! You&apos;ve successfully authenticated, but GitHub does not provide shell access.</span><br></pre></td></tr></table></figure>
+<p>除了配置多个SSH Key，其实还有一个简单的解决方案，就是通过github邀请加入项目，这样，一个Key可以同步多个不同的github账号及其项目，邀请的关键在于『通过邮箱确认』，详见这篇博文：<a href="http://blog.csdn.net/tczzyzymj/article/details/53871763" target="_blank" rel="noopener">http://blog.csdn.net/tczzyzymj/article/details/53871763</a></p>
+<p>重要部分节选如下：</p>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>邀请小伙伴加入：</li>
+</ul>
+<p>1、双方都有GITHUB帐号（废话……）</p>
+<p>2、在你的项目中找到Settings，在Settings下面找到Collaborator，点击Collaborator</p>
+<p>3、输入你的小伙伴的用户名，上面会说，输入用户名、完整名字或者email地址，但是我只有输入了我小伙伴的用户名才找到！</p>
+<p>4、当Add Collaborator可以点击的时候，点击就可以邀请小伙伴了</p>
+<p>5、告诉你的<strong>小伙伴</strong>，让他去他的<strong>注册邮箱</strong>里面找一封<strong>确认信</strong>！！！可能被<strong>标记为垃圾邮件</strong>了！一定要确认，否则无法完成！</p>
+<p>6、完成，大家可以愉快的提交代码了！</p>
+</blockquote>
 
-自由，没有广告
-简单，全静态页面，部署后常用操作不超过一只手
-快速，据说速度是jekyll的N倍
-免费，不需要云服务器的费用
-强大，支持一次编辑，多处发布
-标准，支持Markdown语言的解析
-扩展，支持很多扩展包、主题包，想换就换
-
-最
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/06/Hexo-on-Github-Coding-with-MacOS-Practice/#more" rel="contents">
-              Weiterlesen &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
@@ -393,7 +431,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-06T00:22:36+08:00">
                 2018-03-06
@@ -435,15 +473,17 @@
       
         
           
-          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in 
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/06/hello-world/#more" rel="contents">
-              Weiterlesen &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
+          
         
       
     </div>
@@ -524,7 +564,7 @@
                 <a href="/archives/">
               
                   <span class="site-state-item-count">2</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -537,7 +577,7 @@
               <div class="site-state-item site-state-tags">
                 
                   <span class="site-state-item-count">1</span>
-                  <span class="site-state-item-name">Tags</span>
+                  <span class="site-state-item-name">tags</span>
                 
               </div>
             
@@ -583,7 +623,7 @@
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
@@ -714,6 +754,10 @@
 
 
 
+  
+    
+
+    
   
 
 
