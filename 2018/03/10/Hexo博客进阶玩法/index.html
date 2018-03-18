@@ -115,7 +115,7 @@
 <meta property="og:site_name" content="胡家小院">
 <meta property="og:description" content="¶更换Markdown解析器 ​	在使用中发现一些Markdown语法，Hexo默认的解析器不能支持，比如说footnotes，访问_config.yml里提供的Pliugin集合(https://hexo.io/plugins/)，却在其GitHub主页中发现如下的提示：  This plugin is no longer maintained, I recommend you to use h">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-12T17:12:20.498Z">
+<meta property="og:updated_time" content="2018-03-14T02:11:34.098Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo博客进阶玩法">
 <meta name="twitter:description" content="¶更换Markdown解析器 ​	在使用中发现一些Markdown语法，Hexo默认的解析器不能支持，比如说footnotes，访问_config.yml里提供的Pliugin集合(https://hexo.io/plugins/)，却在其GitHub主页中发现如下的提示：  This plugin is no longer maintained, I recommend you to use h">
@@ -231,21 +231,21 @@
         
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
-            <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签<span class="badge">12</span>
+            <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签<span class="badge">14</span>
               </a>
         </li>
       
         
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
-            <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类<span class="badge">3</span>
+            <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类<span class="badge">4</span>
               </a>
         </li>
       
         
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
-            <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">5</span>
+            <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">6</span>
               </a>
         </li>
       
@@ -405,7 +405,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"># Markdown-it config</span><br><span class="line">## Docs: https://github.com/celsomiranda/hexo-renderer-markdown-it/wiki</span><br><span class="line">markdown:</span><br><span class="line">  render:</span><br><span class="line">    html: true</span><br><span class="line">    xhtmlOut: false</span><br><span class="line">    breaks: true</span><br><span class="line">    linkify: true</span><br><span class="line">    typographer: true</span><br><span class="line">    quotes: &apos;“”‘’&apos;</span><br><span class="line">  plugins:</span><br><span class="line">    - markdown-it-abbr</span><br><span class="line">    - markdown-it-footnote</span><br><span class="line">    - markdown-it-ins</span><br><span class="line">    - markdown-it-sub</span><br><span class="line">    - markdown-it-sup</span><br><span class="line">  anchors:</span><br><span class="line">    level: 2</span><br><span class="line">    collisionSuffix: &apos;v&apos;</span><br><span class="line">    permalink: true</span><br><span class="line">    permalinkClass: header-anchor</span><br><span class="line">    permalinkSymbol: ¶</span><br></pre></td></tr></table></figure>
 <p>​	重新生成就能发现支持<strong>footnotes</strong>了。</p>
 <h3 id="插入图片"><a class="header-anchor" href="#插入图片">¶</a>插入图片</h3>
-<p>​	插入图片是Markdown语言的一个痛，它只能粘贴有公网地址的图片，在Hexo上这一点也一样，觉见的解决方案是把图片上传到七牛云上去。</p>
+<p>​	插入图片是Markdown语言的一个痛，它只能粘贴有公网地址的图片，在Hexo上这一点也一样，常见的解决方案是把图片上传到七牛云上去。</p>
 <p>​	但经过找过，发现针对这个问题其实Hexo自带的配置文件里就已经给了一个很好的解决办法。</p>
 <blockquote>
 <p>1.首先确认<code>_config.yml</code> 中有 <code>post_asset_folder:true</code>。<br>
@@ -576,7 +576,7 @@ Github项目： <a href="https://github.com/ppoffice/hexo-theme-hueman" target="
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -595,7 +595,9 @@ Github项目： <a href="https://github.com/ppoffice/hexo-theme-hueman" target="
                     
                       
                     
-                    <span class="site-state-item-count">3</span>
+                      
+                    
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -632,7 +634,11 @@ Github项目： <a href="https://github.com/ppoffice/hexo-theme-hueman" target="
                     
                       
                     
-                    <span class="site-state-item-count">12</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

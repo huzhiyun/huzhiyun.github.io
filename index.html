@@ -227,21 +227,21 @@
         
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
-            <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签<span class="badge">12</span>
+            <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签<span class="badge">14</span>
               </a>
         </li>
       
         
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
-            <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类<span class="badge">3</span>
+            <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类<span class="badge">4</span>
               </a>
         </li>
       
         
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
-            <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">5</span>
+            <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">6</span>
               </a>
         </li>
       
@@ -276,6 +276,180 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/18/Mac下使用移动硬盘那些事儿/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Hu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="胡家小院">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/18/Mac下使用移动硬盘那些事儿/" itemprop="url">Mac下使用移动硬盘那些事儿</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-18T20:12:39+08:00">2018-03-18</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Mac/" itemprop="url" rel="index"><span itemprop="name">Mac</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/18/Mac下使用移动硬盘那些事儿/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/03/18/Mac下使用移动硬盘那些事儿/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="其实ntfs就可以啦-引用声明"><a class="header-anchor" href="#其实ntfs就可以啦-引用声明">¶</a>其实NTFS就可以啦[^ 引用声明]</h3>
+<p>很多同学都会为如何在Mac下写入NTFS格式的磁盘而感到困惑，因为默认情况下，把一个NTFS格式的磁盘插入到Mac里，是只能读不能写的。用起来肯定很郁闷，很多同学也因此把移动硬盘分成了双分区，一个NTFS，一个HFS。其实在Mac下完全是可以写NTFS磁盘的</p>
+<p>一种十分简单的方法是用第三方工具，Paragon NTFS for MAC。使用这种工具，虽然说是简单了，可是麻烦事也不少，一来是这个工具是要收费的，当然有破解版，不过破解版里有没有被植入什么，那就没有人知道了，二是这个工具本身就不怎么稳定，容易丢数据不说，每次OSX一更新，必须得等软件更新后才能用，总之，用起来不放心啊。</p>
+<p>其实呢，大家并不需要困惑，OSX其实原生就支持NTFS，最早在OSX 10.5的时候，是可以直接写入NTFS的盘的，后来由于微软的限制，把这个功能给屏蔽了，我们可以通过命令行手动打开这个选项。</p>
+<p>第一步，当然是插上磁盘啦。</p>
+<p>可以从finder或者使用以下命令查看到磁盘的Volume Name:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">diskutil list</span><br><span class="line"></span><br><span class="line">/dev/disk0</span><br><span class="line">   #:                       TYPE NAME                    SIZE       IDENTIFIER</span><br><span class="line">   0:      GUID_partition_scheme                        *128.0 GB   disk0</span><br><span class="line">   1:                        EFI EFI                     209.7 MB   disk0s1</span><br><span class="line">   2:          Apple_CoreStorage                         127.7 GB   disk0s2</span><br><span class="line">   3:                 Apple_Boot Boot OS X               134.2 MB   disk0s3</span><br><span class="line">/dev/disk1</span><br><span class="line">   #:                       TYPE NAME                    SIZE       IDENTIFIER</span><br><span class="line">   0:      GUID_partition_scheme                        *500.1 GB   disk1</span><br><span class="line">   1:                        EFI EFI                     209.7 MB   disk1s1</span><br><span class="line">   2:          Apple_CoreStorage                         499.2 GB   disk1s2</span><br><span class="line">   3:                 Apple_Boot Boot OS X               650.0 MB   disk1s3</span><br><span class="line">/dev/disk2</span><br><span class="line">   #:                       TYPE NAME                    SIZE       IDENTIFIER</span><br><span class="line">   0:                  Apple_HFS Macintosh HD           *621.4 GB   disk2</span><br><span class="line">/dev/disk3</span><br><span class="line">   #:                       TYPE NAME                    SIZE       IDENTIFIER</span><br><span class="line">   0:     FDisk_partition_scheme                        *1.0 TB     disk3</span><br><span class="line">   1:               Windows_NTFS FreeAgent GoFlex Drive  1.0 TB     disk3s1</span><br></pre></td></tr></table></figure>
+<p>可以看到，我的 Volume Name 是FreeAgent GoFlex Drive。</p>
+<p>紧接着更新 /etc/fstab文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/fstab</span><br></pre></td></tr></table></figure>
+<p>把以下内容写入进去</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LABEL=FreeAgent\040GoFlex\040Drive none ntfs rw,auto,nobrowse</span><br></pre></td></tr></table></figure>
+<p>下面来依次解释一下，其中的\040的意思是代替空格键，因为我的Volume Name是有空格的，所以必须把这个空格给转义了。</p>
+<p>后面的Ntfs rw表示把这个分区挂载为可读写的ntfs格式，最后nobrowse非常重要，因为这个代表了在finder里不显示这个分区，这个选项非常重要，如果不打开的话挂载是不会成功的。</p>
+<p>编辑好以后重新插入磁盘，就能识别到了，但是这个时候有了一个最大的问题，因为这个分区在finder里不显示了，那么我们要怎么找到它呢，总不能一直用命令行把。</p>
+<p>解决办法其实很简单，因为这个分区是挂/Volumes下的，我们把这个目录在桌面做一个快捷方式就行了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ln -s /Volumes ~/Desktop/Volumes</span><br></pre></td></tr></table></figure>
+<p>然后我们能在桌面找到</p>
+<p><img src="http://www.tianwaihome.com/uploads/2014/07/QQ20140702-1.png" alt="QQ20140702-1"></p>
+<p>点开以后就能找到磁盘了</p>
+<p><img src="http://www.tianwaihome.com/uploads/2014/07/QQ20140702-2.png" alt="QQ20140702-2"></p>
+<p>用这种方法打开的是系统原生的ntfs功能，稳定实用，比第三方工具要好用的多了。</p>
+<p>[^ 引用声明] ：  <a href="http://www.tianwaihome.com/2014/07/mac-osx-ntfs.html%E3%80%82" target="_blank" rel="noopener">http://www.tianwaihome.com/2014/07/mac-osx-ntfs.html。</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -1129,7 +1303,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1148,7 +1322,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">3</span>
+                      
+                    
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -1185,7 +1361,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">12</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
