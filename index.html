@@ -389,75 +389,17 @@
 
       
         
-          
-            <p>​	使用Mac有时候是要有点折腾的精神的，比如说移动硬盘，有时候就会出现插上去，能读不能写的情况，而换成纯Mac的硬盘分区格式，又会出现Windows下识别不了的问题。</p>
+          <p>​	使用Mac有时候是要有点折腾的精神的，比如说移动硬盘，有时候就会出现插上去，能读不能写的情况，而换成纯Mac的硬盘分区格式，又会出现Windows下识别不了的问题。</p>
 <p>​	选择，就是痛苦；门儿清，就是希望；取舍，就是幸福。</p>
 <p>​	好，我们继续。</p>
 <p>​	下面，我们先看一看不同硬盘格式及其区别，适合拿来干什么吧。</p>
-<h3 id="不同硬盘格式及其区别"><a class="header-anchor" href="#不同硬盘格式及其区别">¶</a>不同硬盘格式及其区别</h3>
-<p>​	Mac下，移动硬盘根据不同的分区方式，大概有下面几种区别：</p>
-<ul>
-<li>
-<p>NTFS：mac下读的权限，win下读写权限。大多数win的默认格式，不易发生数据丢失，数据可恢复</p>
-</li>
-<li>
-<p>exFAT：兼容mac，win,都有读写权限，缺点是不稳定，耗空间</p>
-<p>从网上的风评看，稳定性的确有问题，比如下面这个：</p>
-<blockquote>
-<p>ExFat为闪存而准备的硬盘格式，SSD或者U盘用还行，机械硬盘用就…</p>
-<p>本人的东芝2TB硬盘，去年年初买回来开始开始格盘成ExFat，当时也是想法天真，认为ExFat是一种很高端的硬盘格式，能在OS X和Windows之间通用，但是今年开始硬盘开始掉数据，当时没怎么管，直至六月硬盘完全打不开。在网上查了下关于ExFat的情况，断定出极有可能是坏道，用HDtune Pro检查了一下硬盘，50%+坏道，数据抢救基本不可能。隔离坏道对我来说太麻烦，也就是说不能用了。（rarbg下的1080P全灭）</p>
-</blockquote>
-</li>
-<li>
-<p>HSF+：mac下有读写权限，mac的默认文件系统。（APFS未应用之前）。win下不能识别</p>
-<p>缺点：太小众，</p>
-</li>
-<li>
-<p>fat32：老的win下的文件格式，单个文件最大不能超过4G，个人觉得很鸡肋，mac下读写权限不知道（囧）</p>
-</li>
-</ul>
-<h3 id="根据需求适合的硬盘格式"><a class="header-anchor" href="#根据需求适合的硬盘格式">¶</a>根据需求适合的硬盘格式</h3>
-<ul>
-<li>
-<p>mac下的数据备份： HFS+</p>
-</li>
-<li>
-<p>win下的数据备份：NTFS</p>
-</li>
-<li>
-<p>从mac拷贝文件到win：ExFAT</p>
-</li>
-<li>
-<p>从win下拷贝文件到mac：ExFAT NTFS(mac下有读的权限)</p>
-<p>那么，这么看来的话，是不是就是只能无奈地选择不太稳定的ExFAT呢？答案是不一定，其实Mac原生就能挂载NTFS，而且能读能写，只是后来由于微软的限制，把这个功能给屏蔽了。</p>
-<p>具体方法如下，从操作看并不是太困难。</p>
-</li>
-</ul>
-<h3 id="其实ntfs就可以啦-引用声明"><a class="header-anchor" href="#其实ntfs就可以啦-引用声明">¶</a>其实NTFS就可以啦[^ 引用声明]</h3>
-<p>很多同学都会为如何在Mac下写入NTFS格式的磁盘而感到困惑，因为默认情况下，把一个NTFS格式的磁盘插入到Mac里，是只能读不能写的。用起来肯定很郁闷，很多同学也因此把移动硬盘分成了双分区，一个NTFS，一个HFS。其实在Mac下完全是可以写NTFS磁盘的</p>
-<p>一种十分简单的方法是用第三方工具，Paragon NTFS for MAC。使用这种工具，虽然说是简单了，可是麻烦事也不少，一来是这个工具是要收费的，当然有破解版，不过破解版里有没有被植入什么，那就没有人知道了，二是这个工具本身就不怎么稳定，容易丢数据不说，每次OSX一更新，必须得等软件更新后才能用，总之，用起来不放心啊。</p>
-<p>其实呢，大家并不需要困惑，OSX其实原生就支持NTFS，最早在OSX 10.5的时候，是可以直接写入NTFS的盘的，后来由于微软的限制，把这个功能给屏蔽了，我们可以通过命令行手动打开这个选项。</p>
-<p>第一步，当然是插上磁盘啦。</p>
-<p>可以从finder或者使用以下命令查看到磁盘的Volume Name:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">diskutil list</span><br><span class="line"></span><br><span class="line">/dev/disk0</span><br><span class="line">   #:                       TYPE NAME                    SIZE       IDENTIFIER</span><br><span class="line">   0:      GUID_partition_scheme                        *128.0 GB   disk0</span><br><span class="line">   1:                        EFI EFI                     209.7 MB   disk0s1</span><br><span class="line">   2:          Apple_CoreStorage                         127.7 GB   disk0s2</span><br><span class="line">   3:                 Apple_Boot Boot OS X               134.2 MB   disk0s3</span><br><span class="line">/dev/disk1</span><br><span class="line">   #:                       TYPE NAME                    SIZE       IDENTIFIER</span><br><span class="line">   0:      GUID_partition_scheme                        *500.1 GB   disk1</span><br><span class="line">   1:                        EFI EFI                     209.7 MB   disk1s1</span><br><span class="line">   2:          Apple_CoreStorage                         499.2 GB   disk1s2</span><br><span class="line">   3:                 Apple_Boot Boot OS X               650.0 MB   disk1s3</span><br><span class="line">/dev/disk2</span><br><span class="line">   #:                       TYPE NAME                    SIZE       IDENTIFIER</span><br><span class="line">   0:                  Apple_HFS Macintosh HD           *621.4 GB   disk2</span><br><span class="line">/dev/disk3</span><br><span class="line">   #:                       TYPE NAME                    SIZE       IDENTIFIER</span><br><span class="line">   0:     FDisk_partition_scheme                        *1.0 TB     disk3</span><br><span class="line">   1:               Windows_NTFS FreeAgent GoFlex Drive  1.0 TB     disk3s1</span><br></pre></td></tr></table></figure>
-<p>可以看到，我的 Volume Name 是FreeAgent GoFlex Drive。</p>
-<p>紧接着更新 /etc/fstab文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/fstab</span><br></pre></td></tr></table></figure>
-<p>把以下内容写入进去</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LABEL=FreeAgent\040GoFlex\040Drive none ntfs rw,auto,nobrowse</span><br></pre></td></tr></table></figure>
-<p>下面来依次解释一下，其中的\040的意思是代替空格键，因为我的Volume Name是有空格的，所以必须把这个空格给转义了。</p>
-<p>后面的Ntfs rw表示把这个分区挂载为可读写的ntfs格式，最后nobrowse非常重要，因为这个代表了在finder里不显示这个分区，这个选项非常重要，如果不打开的话挂载是不会成功的。</p>
-<p>编辑好以后重新插入磁盘，就能识别到了，但是这个时候有了一个最大的问题，因为这个分区在finder里不显示了，那么我们要怎么找到它呢，总不能一直用命令行把。</p>
-<p>解决办法其实很简单，因为这个分区是挂/Volumes下的，我们把这个目录在桌面做一个快捷方式就行了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ln -s /Volumes ~/Desktop/Volumes</span><br></pre></td></tr></table></figure>
-<p>然后我们能在桌面找到</p>
-<p><img src="http://www.tianwaihome.com/uploads/2014/07/QQ20140702-1.png" alt="QQ20140702-1"></p>
-<p>点开以后就能找到磁盘了</p>
-<p><img src="http://www.tianwaihome.com/uploads/2014/07/QQ20140702-2.png" alt="QQ20140702-2"></p>
-<p>用这种方法打开的是系统原生的ntfs功能，稳定实用，比第三方工具要好用的多了。</p>
-<p>[^ 引用声明]: “” <a href="http://www.tianwaihome.com/2014/07/mac-osx-ntfs.html%E3%80%82" target="_blank" rel="noopener">http://www.tianwaihome.com/2014/07/mac-osx-ntfs.html。</a></p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/18/Mac下使用移动硬盘那些事儿/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
